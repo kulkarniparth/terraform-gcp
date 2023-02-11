@@ -4,11 +4,18 @@ variable "bucket_name" {
     default = "file-upload-bucket-parth-kulkarni-unique-hopefully"
 }
 
+variable "topic_id" {
+    type = string
+    description = "topic id"
+    default = "file-upload-topic-parth-kulkarni-unique-hopefully"
+}
+
 variable "topic_name" {
     type = string
     description = "topic name"
-    default = "file-upload-topic-parth-kulkarni-unique-hopefully"
+    default = "projects/valencia-377506/topics/file-upload-topic-parth-kulkarni-unique-hopefully"
 }
+
 
 variable "location" {
     type = string

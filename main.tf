@@ -7,7 +7,7 @@ resource "google_storage_bucket" "bucket" {
 
 # Topic Provisioning
 resource "google_pubsub_topic" "topic" {
-  name     = var.topic_name
+  name     = var.topic_id
   project  =  var.project_id
 }
 
