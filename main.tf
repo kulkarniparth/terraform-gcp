@@ -17,6 +17,8 @@ resource "google_pubsub_subscription" "example" {
   name  = var.topic_subscription
   topic = var.topic_name
   depends_on = [google_pubsub_topic.topic]
+  project  =  var.project_id
+
 }
 
 # Role Binding for the GCS SA
