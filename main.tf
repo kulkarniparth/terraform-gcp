@@ -20,6 +20,7 @@
 #   depends_on = [google_storage_bucket.bucket]
 # }
 
+
 # #notification config
 # resource "google_storage_notification" "notification" {
 #   bucket         = var.bucket_name
