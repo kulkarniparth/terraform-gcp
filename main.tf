@@ -48,6 +48,7 @@ resource "google_service_account" "service_account" {
   project  =  var.project_id
 }
 
+
 # #IAM binding for application service account
 # resource "google_project_iam_binding" "project" {
 #   project = var.project_id
