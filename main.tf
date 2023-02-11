@@ -49,7 +49,7 @@ resource "google_service_account" "service_account" {
 }
 
 #IAM binding for application service account
-resource "google_project_iam_binding" "project" {
+resource "google_project_iam_binding" "project_creator" {
   project = var.project_id
   role    = "roles/objectCreator"
   members = [
@@ -60,7 +60,7 @@ resource "google_project_iam_binding" "project" {
   ]
 }
 
-resource "google_project_iam_binding" "project" {
+resource "google_project_iam_binding" "project_viewer" {
   project = var.project_id
   role    = "roles/objectViewer"
   members = [
