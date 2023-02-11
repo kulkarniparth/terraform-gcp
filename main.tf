@@ -1,25 +1,24 @@
-# # Bucket Provisioning
-# resource "google_storage_bucket" "bucket" {
-#   name     = var.bucket_name
-#   location = var.location
-#   project  =  var.project_id
-# }
+# Bucket Provisioning
+resource "google_storage_bucket" "bucket" {
+  name     = var.bucket_name
+  location = var.location
+  project  =  var.project_id
+}
 
-# # Topic Provisioning
-# resource "google_pubsub_topic" "topic" {
-#   name     = var.topic_id
-#   project  =  var.project_id
-# }
+# Topic Provisioning
+resource "google_pubsub_topic" "topic" {
+  name     = var.topic_id
+  project  =  var.project_id
+}
 
-# # Role Binding for the GCS SA
-# resource "google_pubsub_topic_iam_binding" "binding" {
-#   topic   = var.topic_name
-#   role    = "roles/pubsub.publisher"
-#   members = ["serviceAccount:${var.gcs_service_agent}"]
-#   project  =  var.project_id
-#   depends_on = [google_storage_bucket.bucket]
-# }
-
+# Role Binding for the GCS SA
+resource "google_pubsub_topic_iam_binding" "binding" {
+  topic   = var.topic_name
+  role    = "roles/pubsub.publisher"
+  members = ["serviceAccount:${var.gcs_service_agent}"]
+  project  =  var.project_id
+  depends_on = [google_storage_bucket.bucket]
+}
 
 # #notification config
 # resource "google_storage_notification" "notification" {
