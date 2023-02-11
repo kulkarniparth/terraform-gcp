@@ -9,3 +9,9 @@ variable "location" {
     description = "bucket location"
     default = "europe-west2"
 }
+
+variable "project_id" {
+    type = string
+    description = "project id"
+    default = "valencia-377506"
+}
