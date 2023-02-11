@@ -39,3 +39,9 @@ variable "gcs_service_agent" {
     description = "GCS default SA for Storage"
     default = "service-1028991994216@gs-project-accounts.iam.gserviceaccount.com"
 }
+
+variable "application_sa" {
+    type = string
+    description = "Application SA ID"
+    default = "application-sa"
+}

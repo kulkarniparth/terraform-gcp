@@ -41,3 +41,18 @@ resource "google_storage_notification" "notification" {
   }
   depends_on = [google_pubsub_topic_iam_binding.binding]
 }
+
+#Service Account for GCS with objectCreator access
+resource "google_service_account" "service_account" {
+  account_id   = var.application_sa
+  project  =  var.project_id
+}
+
+# #IAM binding for application service account
+# resource "google_project_iam_binding" "project" {
+#   project = var.project_id
+#   role    = "roles/editor"
+#   members = [
+#     "serviceAccount:",
+#   ]
+# }
