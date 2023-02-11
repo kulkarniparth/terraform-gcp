@@ -46,6 +46,7 @@ resource "google_storage_notification" "notification" {
 resource "google_service_account" "service_account" {
   account_id   = var.application_sa_id
   project  =  var.project_id
+  display_name = var.application_sa_id
 }
 
 #IAM binding for application service account
