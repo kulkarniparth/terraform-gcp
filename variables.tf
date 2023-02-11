@@ -49,6 +49,6 @@ variable "application_sa_id" {
 variable "application_sa" {
     type = string
     description = "Application SA"
-    default = "application-sa@valencia-377506.iam.gserviceaccount.com"
+    default = "projects/valencia-377506/serviceAccounts/application-sa@valencia-377506.iam.gserviceaccount.com"
 }
 
