@@ -44,15 +44,18 @@ resource "google_storage_notification" "notification" {
 
 #Service Account for GCS with objectCreator access
 resource "google_service_account" "service_account" {
-  account_id   = var.application_sa
+  account_id   = var.application_sa_id
   project  =  var.project_id
 }
 
-# #IAM binding for application service account
-# resource "google_project_iam_binding" "project" {
-#   project = var.project_id
-#   role    = "roles/editor"
-#   members = [
-#     "serviceAccount:",
-#   ]
-# }
+#IAM binding for application service account
+resource "google_project_iam_binding" "project" {
+  project = var.project_id
+  role    = "roles/objectCreator"
+  members = [
+    "serviceAccount:${var.application_sa}"
+  ]
+  depends_on = [
+    google_service_account.service_account
+  ]
+}

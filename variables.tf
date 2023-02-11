@@ -40,8 +40,15 @@ variable "gcs_service_agent" {
     default = "service-1028991994216@gs-project-accounts.iam.gserviceaccount.com"
 }
 
-variable "application_sa" {
+variable "application_sa_id" {
     type = string
     description = "Application SA ID"
     default = "application-sa"
 }
+
+variable "application_sa" {
+    type = string
+    description = "Application SA"
+    default = "application-sa@valencia-377506.iam.gserviceaccount.com"
+}
+
