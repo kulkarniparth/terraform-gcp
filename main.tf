@@ -11,6 +11,7 @@ resource "google_pubsub_topic" "topic" {
   project  =  var.project_id
 }
 
+
 # Role Binding for the GCS SA
 resource "google_pubsub_topic_iam_binding" "binding" {
   topic   = var.topic_name
