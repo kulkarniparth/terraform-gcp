@@ -16,6 +16,7 @@ resource "google_pubsub_topic_iam_binding" "binding" {
   topic   = var.topic_name
   role    = "roles/pubsub.publisher"
   members = ["serviceAccount:${var.gcs_service_agent}"]
+  project  =  var.project_id
   depends_on = [google_storage_bucket.bucket]
 }
 
@@ -25,6 +26,7 @@ resource "google_storage_notification" "notification" {
   payload_format = "JSON_API_V1"
   topic          = var.topic_name
   event_types    = ["OBJECT_FINALIZE", "OBJECT_METADATA_UPDATE"]
+  project  =  var.project_id
   custom_attributes = {
     new-attribute = "new-attribute-value"
   }
