@@ -16,6 +16,11 @@ variable "topic_name" {
     default = "projects/valencia-377506/topics/file-upload-topic-parth-kulkarni-unique-hopefully"
 }
 
+variable "topic_subscription" {
+    type = string
+    description = "topic_subscription"
+    default = "topic-subscription"
+}
 
 variable "location" {
     type = string
