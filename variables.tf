@@ -7,5 +7,5 @@ variable "bucket_name" {
 variable "location" {
     type = string
     description = "bucket location"
-    defadefault = "europe-west2"
+    default = "europe-west2"
 }
