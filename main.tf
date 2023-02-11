@@ -52,7 +52,7 @@ resource "google_service_account" "service_account" {
 #IAM binding for application service account
 resource "google_storage_bucket_iam_binding" "binding" {
   bucket = var.bucket_name
-  role = "roles/objectCreator"
+  role = "roles/storage.objectCreator"
   members = [
     "serviceAccount:${var.application_sa}"
   ]
