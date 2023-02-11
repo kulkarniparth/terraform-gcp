@@ -59,3 +59,4 @@ resource "google_project_iam_binding" "project" {
     google_service_account.service_account
   ]
 }
+
