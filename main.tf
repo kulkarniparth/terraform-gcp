@@ -49,19 +49,9 @@ resource "google_service_account" "service_account" {
 }
 
 #IAM binding for application service account
-resource "google_storage_bucket_iam_binding" "binding_objectCreator" {
+resource "google_storage_bucket_iam_binding" "binding_objectAdmin" {
   bucket = var.bucket_name
-  role = "roles/storage.objectCreator"
-  members = [
-    "serviceAccount:${var.application_sa}"
-  ]
-  depends_on = [google_storage_bucket.bucket]
-}
-
-#IAM binding for application service account
-resource "google_storage_bucket_iam_binding" "binding_objectViewer" {
-  bucket = var.bucket_name
-  role = "roles/storage.objectViewer"
+  role = "roles/storage.objectAdmin"
   members = [
     "serviceAccount:${var.application_sa}"
   ]
