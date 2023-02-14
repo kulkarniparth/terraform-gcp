@@ -55,4 +55,5 @@ resource "google_storage_bucket_iam_binding" "binding" {
   members = [
     "serviceAccount:${var.application_sa}"
   ]
+  depends_on = [google_storage_bucket.bucket]
 }
