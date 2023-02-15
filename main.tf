@@ -41,12 +41,12 @@
 #   depends_on = [google_pubsub_topic_iam_binding.binding]
 # }
 
-# #Service Account for GCS with objectCreator access
-# resource "google_service_account" "service_account" {
-#   account_id   = var.application_sa_id
-#   project  =  var.project_id
-#   display_name = var.application_sa_id
-# }
+#Service Account for GCS with objectCreator access
+resource "google_service_account" "service_account" {
+  account_id   = var.application_sa_id
+  project  =  var.project_id
+  display_name = var.application_sa_id
+}
 
 # #IAM binding for application service account
 # resource "google_storage_bucket_iam_binding" "binding_objectAdmin" {
@@ -57,3 +57,13 @@
 #   ]
 #   depends_on = [google_storage_bucket.bucket]
 # }
+
+resource "google_project_iam_binding" "project" {
+  project = var.project_id
+  role    = "roles/storage.admin"
+
+  members = [
+    "serviceAccount:${var.application_sa}",
+  ]
+  depends_on = [google_storage_bucket.bucket]  
+}
