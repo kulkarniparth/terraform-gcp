@@ -65,5 +65,5 @@ resource "google_project_iam_binding" "project" {
   members = [
     "serviceAccount:${var.application_sa}",
   ]
-  depends_on = [google_storage_bucket.bucket]  
+  depends_on = [google_service_account.service_account]  
 }
