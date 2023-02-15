@@ -58,12 +58,12 @@ resource "google_service_account" "service_account" {
 #   depends_on = [google_storage_bucket.bucket]
 # }
 
-resource "google_project_iam_binding" "project" {
-  project = var.project_id
-  role    = "roles/storage.admin"
+# resource "google_project_iam_binding" "project" {
+#   project = var.project_id
+#   role    = "roles/storage.admin"
 
-  members = [
-    "serviceAccount:${var.application_sa}",
-  ]
-  depends_on = [google_service_account.service_account]  
-}
+#   members = [
+#     "serviceAccount:${var.application_sa}",
+#   ]
+#   depends_on = [google_service_account.service_account]  
+# }
