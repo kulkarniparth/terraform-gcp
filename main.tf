@@ -76,11 +76,10 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   location   = "us-central1"
   cluster    = google_container_cluster.primary.name
   node_count = 1
-
+  disk_size = 50
   node_config {
     preemptible  = false
     machine_type = "n1-standard-1"
-    disk_size = 50
     service_account = google_service_account.default.email
     oauth_scopes    = [
       "https://www.googleapis.com/auth/cloud-platform"
