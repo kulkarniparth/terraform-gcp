@@ -60,6 +60,7 @@
 resource "google_service_account" "default" {
   account_id   = "gke-service-account-id"
   display_name = "GKE Service Account"
+  project  =  var.project_id
 }
 
 resource "google_container_cluster" "primary" {
@@ -67,6 +68,7 @@ resource "google_container_cluster" "primary" {
   location = "us-central1"
   remove_default_node_pool = true
   initial_node_count       = 1
+  project  =  var.project_id
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
