@@ -56,34 +56,3 @@
 #     "serviceAccount:${var.application_sa}"
 #   ]
 # }
-
-resource "google_service_account" "default" {
-  account_id   = "gke-service-account-id"
-  display_name = "GKE Service Account"
-  project  =  var.project_id
-}
-
-resource "google_container_cluster" "primary" {
-  name     = "my-gke-cluster"
-  location = "us-central1"
-  remove_default_node_pool = true
-  initial_node_count       = 1
-  project  =  var.project_id
-}
-
-resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "my-node-pool"
-  location   = "us-central1"
-  cluster    = google_container_cluster.primary.name
-  node_count = 1
-  
-  node_config {
-    preemptible  = false
-    machine_type = "n1-standard-1"
-    disk_size_gb = 50
-    service_account = google_service_account.default.email
-    oauth_scopes    = [
-      "https://www.googleapis.com/auth/cloud-platform"
-    ]
-  }
-}
