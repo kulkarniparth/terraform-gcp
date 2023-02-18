@@ -12,6 +12,7 @@ resource "google_pubsub_topic" "topic" {
   message_retention_duration = "86400s"
 }
 
+#pubsub topic subscription
 resource "google_pubsub_subscription" "example" {
   name  = var.topic_subscription
   topic = var.topic_name
