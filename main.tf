@@ -57,12 +57,10 @@
 //  ]
 //}
 
-data "google_project" "project" {
-  id = "valencia-377506"
-}
+
 
 resource "google_essential_contacts_contact" "contact" {
-  parent = data.google_project.project.id
+  parent = "projects/valencia-377506"
   email = "parthkulkarni2023@gmail.com"
   language_tag = "en-GB"
   notification_category_subscriptions = ["ALL"]
