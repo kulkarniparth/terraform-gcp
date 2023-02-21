@@ -57,8 +57,11 @@
 //  ]
 //}
 
+data "google_project" "project" {
+}
+
 resource "google_essential_contacts_contact" "contact" {
-  parent = format("projects/%s", var.project_id)
+  parent = data.google_project.project.id
   email = "parthkulkarni2023@gmail.com"
   language_tag = "en-GB"
   notification_category_subscriptions = ["ALL"]
