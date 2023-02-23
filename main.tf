@@ -1,10 +1,10 @@
-//# Bucket Provisioning
-//resource "google_storage_bucket" "bucket" {
-//  name     = var.bucket_name
-//  location = var.location
-//  project  =  var.project_id
-//}
-//
+# Bucket Provisioning
+resource "google_storage_bucket" "bucket" {
+  name     = var.bucket_name
+  location = var.location
+  project  =  var.project_id
+}
+
 //# Topic Provisioning
 //resource "google_pubsub_topic" "topic" {
 //  name     = var.topic_id
@@ -48,15 +48,24 @@
 //  display_name = var.application_sa_id
 //}
 //
-//#IAM binding for application service account
-//resource "google_storage_bucket_iam_binding" "binding" {
-//  bucket = var.bucket_name
-//  role = "roles/storage.objectCreator"
-//  members = [
-//    "serviceAccount:${var.application_sa}"
-//  ]
-//}
-//
+#IAM binding for application service account
+resource "google_storage_bucket_iam_binding" "binding" {
+  bucket = var.bucket_name
+  role = "roles/storage.objectCreator"
+  members = [
+    "serviceAccount:${var.application_sa}"
+  ]
+}
+
+#IAM binding for application service account
+resource "google_storage_bucket_iam_binding" "binding2" {
+  bucket = var.bucket_name
+  role = "roles/storage.objectViewer"
+  members = [
+    "serviceAccount:${var.application_sa}"
+  ]
+}
+
 //resource "google_essential_contacts_contact" "contact" {
 //  parent = "projects/valencia-377506"
 //  email = "parthkulkarni2023@gmail.com"
