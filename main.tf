@@ -55,6 +55,7 @@ resource "google_storage_bucket_iam_binding" "binding" {
   members = [
     "serviceAccount:${var.application_sa}"
   ]
+  depends_on = [google_storage_bucket.bucket]
 }
 
 #IAM binding for application service account
@@ -64,6 +65,7 @@ resource "google_storage_bucket_iam_binding" "binding2" {
   members = [
     "serviceAccount:${var.application_sa}"
   ]
+    depends_on = [google_storage_bucket.bucket]
 }
 
 //resource "google_essential_contacts_contact" "contact" {
